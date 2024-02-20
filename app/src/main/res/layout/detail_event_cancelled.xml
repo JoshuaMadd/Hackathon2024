@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+
+        <TextView
+            android:id="@+id/cancelledDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:paddingTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Practice Enterprise 3 en interdisciplinaire studies van actuele thema's" />
+
+        <TextView
+            android:id="@+id/cancelledDetailSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/aCancelledCourse"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cancelledDetailClass"
+            app:layout_constraintTop_toBottomOf="@id/cancelledDetailTitle"/>
+
+        <TextView
+            android:id="@+id/cancelledDetailClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cancelledDetailTitle"
+            tools:text="3SD + 3BIT + 3NET"/>
+
+        <TextView
+            android:id="@+id/cancelledDetailStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:paddingTop="8dp"
+            app:layout_constraintTop_toTopOf="@id/cancelledDetailImg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/cancelledDetailImg"
+            tools:text="27 februari 2023"/>
+
+
+        <ImageView
+            android:id="@+id/cancelledDetailImg"
+            android:layout_width="27dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cancelledDetailEndTime"
+            app:layout_constraintTop_toBottomOf="@id/cancelledDetailClass"
+            app:srcCompat="@drawable/time_stamp_circles_cancelled"/>
+
+        <TextView
+            android:id="@+id/cancelledDetailStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:layout_marginEnd="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cancelledDetailClass"
+            tools:text="8:45"/>
+
+        <TextView
+            android:id="@+id/cancelledDetailEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/cancelledDetailImg"
+            tools:text="10:45"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

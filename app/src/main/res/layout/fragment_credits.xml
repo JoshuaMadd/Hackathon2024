@@ -1,0 +1,61 @@
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="be.vives.vivesplus.screens.settings.CreditsFragment"
+            android:padding="16dp">
+
+        <TextView
+                android:textSize="22sp"
+                android:text="@string/gebruikte_icons"
+                android:textAlignment="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_soup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/by_those_icons_from_www_flaticon_com" />
+
+        <TextView
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_pasta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/by_vitaly_gorbachev_from_www_flaticon_com" />
+
+        <TextView
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_platform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/by_freepik_from_www_flaticon_com" />
+
+        <TextView
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_veggie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/by_eucalyp_from_www_flaticon_com" />
+
+        <TextView
+                android:padding="5dp"
+                android:drawablePadding="5dp"
+                android:drawableStart="@drawable/ic_classic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/by_vitaly_gorbachev_from_www_flaticon_com" />
+
+    </LinearLayout>
+
+
+</layout>

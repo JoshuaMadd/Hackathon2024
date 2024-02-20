@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="big_text">40sp</dimen>
+    <dimen name="medium_text">30sp</dimen>
+    <dimen name="small_text">20sp</dimen>
+    <dimen name="standard_70">70dp</dimen>
+    <dimen name="standerd_140">140dp</dimen>
+    <dimen name="standard_90">90dp</dimen>
+    <dimen name="standard_160">160dp</dimen>
+    <dimen name="corner_standard">10dp</dimen>
+</resources>

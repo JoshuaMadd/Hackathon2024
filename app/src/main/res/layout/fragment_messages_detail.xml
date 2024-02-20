@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+       >
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="false">
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/detailCreatietijd"
+                android:layout_marginTop="17dp"
+                android:background="#8c8c8c"
+                tools:layout_editor_absoluteX="95dp"
+                tools:layout_editor_absoluteY="80dp" />
+
+    <TextView
+            android:id="@+id/detailCreatietijd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/detailOnderwerp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="13dp"
+            android:text="3:14PM"
+            tools:layout_editor_absoluteX="137dp"
+            tools:layout_editor_absoluteY="2dp" />
+
+    <TextView
+            android:id="@+id/detailOnderwerp"
+            android:textStyle="bold"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:text="onderwerp"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="-96dp"
+            tools:layout_editor_absoluteY="123dp" />
+
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="89dp"
+            tools:ignore="ObsoleteLayoutParam">
+
+        <TextView
+                android:id="@+id/detailVerstuurder"
+                android:layout_width="262dp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="21dp"
+                android:layout_marginEnd="38dp"
+                android:layout_toEndOf="@+id/detailCategoryIcon"
+                android:text="verstuurder"
+                android:textSize="18sp" />
+
+        <info.androidhive.fontawesome.FontTextView
+                android:id="@+id/detailCategoryIcon"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="21dp"
+                android:padding="10sp"
+                android:textColor="@color/Inside_icon_color"
+                android:textSize="@dimen/big_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:solid_icon="true" />
+
+        <TextView
+                android:id="@+id/detailBeschrijving"
+                android:layout_width="318dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="231dp"
+                android:layout_marginEnd="20dp"
+                android:text="dit is een proef" />
+
+        <RelativeLayout
+                android:id="@+id/layoutSchedule"
+                android:layout_width="350dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="112dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/schedule_info"
+                android:visibility="visible">
+
+            <info.androidhive.fontawesome.FontTextView
+                    android:id="@+id/mapMarker"
+                    android:layout_width="43dp"
+                    android:layout_height="39dp"
+                    android:textColor="@color/Inside_icon_color"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="49dp"
+                    android:text="@string/fa_map_marker_alt_solid"
+                    android:textSize="@dimen/small_text"
+                    app:solid_icon="true" />
+
+            <info.androidhive.fontawesome.FontTextView
+                    android:id="@+id/clockImage"
+                    android:textColor="@color/Inside_icon_color"
+                    android:layout_width="42dp"
+                    android:layout_height="37dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginBottom="1dp"
+                    android:text="@string/fa_clock_solid"
+                    android:textSize="@dimen/small_text"
+                    app:solid_icon="true" />
+
+            <TextView
+                    android:id="@+id/eventLocation"
+                    android:layout_width="244dp"
+                    android:layout_height="35dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="43dp"
+                    android:layout_toEndOf="@+id/mapMarker"
+                    android:text="TextView" />
+
+            <TextView
+                    android:id="@+id/eventTime"
+                    android:layout_width="239dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="46dp"
+                    android:layout_marginBottom="19dp"
+                    android:layout_toEndOf="@+id/clockImage" />
+        </RelativeLayout>
+
+        <TextView
+                android:id="@+id/detailCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="20sp"
+
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="70dp"
+                android:layout_toEndOf="@+id/detailCategoryIcon"
+                android:text="category"/>
+
+        <Button
+                android:id="@+id/btnMoreText"
+                android:layout_width="349dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/detailBeschrijving"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/profile_button"
+                android:gravity="center"
+                android:text="Lees meer"
+                android:textColor="@color/white"
+                android:textSize="8sp"
+                android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>
+    </ScrollView>
+
+
+</layout>

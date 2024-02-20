@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/modernDashboardFragment">
+
+    <fragment
+        android:id="@+id/openbaarvervoerTrafficFragment"
+        android:name="be.vives.vivesplus.screens.traffic.OpenbaarvervoerTrafficFragment"
+        android:label="fragment_openbaarvervoer_traffic"
+        tools:layout="@layout/fragment_openbaarvervoer_traffic" >
+        <argument
+            android:name="toPage"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/uurroosterFragment"
+        android:name="be.vives.vivesplus.screens.uurrooster.UurroosterFragment"
+        android:label="UurroosterFragment"
+        tools:layout="@layout/fragment_uurrooster">
+        <argument
+            android:name="date"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_uurroosterFragment_to_uurroosterDetailFragment"
+            app:destination="@id/uurroosterDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="be.vives.vivesplus.screens.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_noInternetFragment"
+            app:destination="@id/noInternetFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_admin_new_absences"
+        android:id="@+id/adminNewAbsencesFragment"
+        android:name="be.vives.vivesplus.screens.admin.absences.AdminNewAbsencesFragment"
+        android:label="AdminNewAbsencesFragment" />
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="be.vives.vivesplus.screens.messages.MessagesFragment"
+        android:label="MessagesFragment"
+        tools:layout="@layout/fragment_messages">
+        <action
+            android:id="@+id/action_messagesFragment_to_messagesDetailFragment"
+            app:destination="@id/messagesDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagesDetailFragment"
+        android:name="be.vives.vivesplus.screens.messagesdetail.MessagesDetailFragment"
+        android:label="MessagesDetailFragment"
+        tools:layout="@layout/fragment_messages_detail">
+        <argument
+            android:name="message"
+            app:argType="be.vives.vivesplus.model.Message" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAbsencesFragment"
+        android:name="be.vives.vivesplus.screens.admin.absences.AdminAbsencesFragment"
+        android:label="AdminAbsencesFragment"
+        tools:layout="@layout/fragment_admin_absences">
+        <action
+            android:id="@+id/action_adminAbsencesFragment_to_adminNewAbsencesFragment"
+            app:destination="@id/adminNewAbsencesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchDocentFragment"
+        android:name="be.vives.vivesplus.screens.admin.searchdocent.SearchDocentFragment"
+        android:label="SearchDocentFragment"
+        tools:layout="@layout/fragment_search_docent">
+        <action
+            android:id="@+id/action_searchDocentFragment_to_searchDocentDetailFragment"
+            app:destination="@id/searchDocentDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchDocentDetailFragment"
+        android:name="be.vives.vivesplus.screens.admin.searchdocent.SearchDocentDetailFragment"
+        android:label="SearchDocentDetailFragment"
+        tools:layout="@layout/fragment_search_docent_detail"/>
+    <fragment
+        android:id="@+id/restaurantFragment"
+        android:name="be.vives.vivesplus.screens.restaurant.RestaurantFragment"
+        android:label="RestaurantFragment"
+        tools:layout="@layout/fragment_restaurant">
+        <action
+            android:id="@+id/action_restaurantFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="be.vives.vivesplus.MainActivity"
+        android:label="MainActivity"
+        tools:layout="@layout/activity_main"/>
+    <fragment
+        android:id="@+id/noInternetFragment"
+        android:name="be.vives.vivesplus.screens.login.NoInternetFragment"
+        android:label="NoInternetFragment"
+        tools:layout="@layout/fragment_no_internet"/>
+    <fragment
+        android:id="@+id/modernDashboardFragment"
+        android:name="be.vives.vivesplus.screens.modernDashboard.ModernDashboardFragment"
+        android:label="ModernDashboardFragment"
+        tools:layout="@layout/fragment_modern_dashboard">
+        <action
+            android:id="@+id/action_modernDashboardFragment2_to_messagesFragment"
+            app:destination="@id/messagesFragment" />
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_openbaarvervoerTrafficFragment"
+            app:destination="@id/openbaarvervoerTrafficFragment" >
+            <argument
+                android:name="toPage" />
+        </action>
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_uurroosterFragment"
+            app:destination="@id/uurroosterFragment"
+            app:popUpTo="@id/modernDashboardFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_studentProfileSettingsFragment"
+            app:destination="@id/studentProfileSettingsFragment" />
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_docentProfileSettingsFragment"
+            app:destination="@id/docentProfileSettingsFragment" />
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_ParkingTicketFragment"
+            app:destination="@id/parkingTicketFragment" />
+
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_docentEductionsFragment"
+            app:destination="@id/docentEductionsFragment" />
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_docentStudyProposalFragment"
+            app:destination="@id/docentStudyProposalFragment" />
+        <action
+            android:id="@+id/action_modernDashboardFragment_to_presenceQRFragment"
+            app:destination="@id/presenceQRFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="be.vives.vivesplus.screens.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_studentProfileSettingsFragment"
+            app:destination="@id/studentProfileSettingsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_docentProfileSettingsFragment"
+            app:destination="@id/docentProfileSettingsFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_openbaarvervoerTrafficFragment"
+            app:destination="@id/openbaarvervoerTrafficFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_searchDocentFragment"
+            app:destination="@id/searchDocentFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_adminAbsencesFragment"
+            app:destination="@id/adminAbsencesFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_presenceQRFragment"
+            app:destination="@id/presenceQRFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentProfileSettingsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.student.StudentProfileSettingsFragment"
+        android:label="fragment_student_profile_settings"
+        tools:layout="@layout/fragment_student_profile_settings" >
+        <action
+            android:id="@+id/action_studentProfileSettingsFragment_to_studentGeneralInfoFragment"
+            app:destination="@id/studentGeneralInfoFragment" />
+        <action
+            android:id="@+id/action_studentProfileSettingsFragment_to_studentFieldOfStudySettingsFragment"
+            app:destination="@id/studentFieldOfStudySettingsFragment" />
+        <action
+            android:id="@+id/action_studentProfileSettingsFragment_to_studentCampusSettingsFragment"
+            app:destination="@id/studentCampusSettingsFragment" />
+        <action
+            android:id="@+id/action_studentProfileSettingsFragment_to_studentTransportSettingsFragment"
+            app:destination="@id/studentTransportSettingsFragment" />
+        <action
+            android:id="@+id/action_studentProfileSettingsFragment_to_jobstudentFragment"
+            app:destination="@id/jobstudentFragment" />
+        <action
+            android:id="@+id/action_studentProfileSettingsFragment_to_deleteAccountFragment"
+            app:destination="@id/deleteAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/docentProfileSettingsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.DocentProfileSettingsFragment"
+        android:label="fragment_docent_profile_settings"
+        tools:layout="@layout/fragment_docent_profile_settings" >
+        <action
+            android:id="@+id/action_docentProfileSettingsFragment_to_docentFieldOfStudySettingsFragment"
+            app:destination="@id/docentFieldOfStudySettingsFragment" />
+        <action
+            android:id="@+id/action_docentProfileSettingsFragment_to_docentTransportSettingsFragment"
+            app:destination="@id/docentTransportSettingsFragment" />
+        <action
+            android:id="@+id/action_docentProfileSettingsFragment_to_docentGeneralInfoFragment"
+            app:destination="@id/docentGeneralInfoFragment" />
+        <action
+            android:id="@+id/action_docentProfileSettingsFragment_to_docentCampusSettingsFragment"
+            app:destination="@id/docentCampusSettingsFragment" />
+        <action
+            android:id="@+id/action_docentProfileSettingsFragment_to_deleteAccountFragment"
+            app:destination="@id/deleteAccountFragment" />
+        <action
+            android:id="@+id/action_docentProfileSettingsFragment_to_docentEductionsFragment"
+            app:destination="@id/docentEductionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentGeneralInfoFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.student.generalinfo.StudentGeneralInfoFragment"
+        android:label="fragment_student_general_info"
+        tools:layout="@layout/fragment_student_general_info" />
+    <fragment
+        android:id="@+id/studentFieldOfStudySettingsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.student.fielofstudysettings.StudentFieldOfStudySettingsFragment"
+        android:label="StudentFieldOfStudySettingsFragment" />
+    <fragment
+        android:id="@+id/studentCampusSettingsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.student.campussettings.StudentCampusSettingsFragment"
+        android:label="fragment_student_campus_settings"
+        tools:layout="@layout/fragment_student_campus_settings" />
+    <fragment
+        android:id="@+id/studentTransportSettingsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.student.transportsettings.StudentTransportSettingsFragment"
+        android:label="fragment_student_transport_settings"
+        tools:layout="@layout/fragment_student_transport_settings" />
+    <fragment
+        android:id="@+id/docentFieldOfStudySettingsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.fielofstudysettings.DocentFieldOfStudySettingsFragment"
+        android:label="DocentFieldOfStudySettingsFragment" />
+    <fragment
+        android:id="@+id/docentGeneralInfoFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.generalinfo.DocentGeneralInfoFragment"
+        android:label="DocentGeneralInfoFragment" />
+    <fragment
+        android:id="@+id/docentTransportSettingsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.transportsettings.DocentTransportSettingsFragment"
+        android:label="DocentTransportSettingsFragment" />
+    <fragment
+        android:id="@+id/docentCampusSettingsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.campussettings.DocentCampusSettingsFragment"
+        android:label="fragment_docent_transport_settings"
+        tools:layout="@layout/fragment_docent_transport_settings" />
+    <fragment
+        android:id="@+id/studentTutorialFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.student.tutorial.StudentTutorialFragment"
+        android:label="fragment_student_tutorial"
+        tools:layout="@layout/fragment_student_tutorial" />
+    <fragment
+        android:id="@+id/docentTutorialFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.tutorial.DocentTutorialFragment"
+        android:label="fragment_docent_tutorial"
+        tools:layout="@layout/fragment_docent_tutorial" />
+    <fragment
+        android:id="@+id/jobstudentFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.student.jobstudent.JobstudentFragment"
+        android:label="jobstudent_fragment"
+        tools:layout="@layout/fragment_student_jobstudent" />
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="be.vives.vivesplus.screens.webview.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/webview">
+        <argument
+            android:name="link"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/deleteAccountFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.deleteaccount.DeleteAccountFragment"
+        android:label="fragment_delete_account"
+        tools:layout="@layout/fragment_delete_account" />
+    <fragment
+        android:id="@+id/parkingTicketFragment"
+        android:name="be.vives.vivesplus.screens.parkeerticket.ParkingTicketFragment"
+        android:label="parkingTicketFragment" />
+    <fragment
+        android:id="@+id/docentEductionsFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.studies.DocentEducationsFragment"
+        android:label="fragment_docent_eductions"
+        tools:layout="@layout/fragment_docent_educations" >
+        <action
+            android:id="@+id/action_docentEductionsFragment_to_docentStudyProposalFragment"
+            app:destination="@id/docentStudyProposalFragment" />
+        <action
+            android:id="@+id/action_docentEductionsFragment_to_docentSearchStudiesFragment"
+            app:destination="@id/docentSearchStudiesFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/docentStudyProposalFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.studyproposals.DocentStudyProposalFragment"
+        android:label="DocentStudyProposalFragment" >
+        <argument
+            android:name="proposalList"
+            app:argType="be.vives.vivesplus.model.StudyProposal[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/docentSearchStudiesFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.searchstudies.DocentSearchStudiesFragment"
+        android:label="fragment_docent_search_studies"
+        tools:layout="@layout/fragment_docent_search_studies" />
+    <action
+        android:id="@+id/action_global_docentTutorialFragment"
+        app:destination="@id/docentTutorialFragment"/>
+    <action
+        android:id="@+id/action_global_modernDashboardFragment"
+        app:destination="@id/modernDashboardFragment"/>
+    <action
+        android:id="@+id/action_global_studentTutorialFragment"
+        app:destination="@id/studentTutorialFragment"/>
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"/>
+    <action android:id="@+id/action_global_menuFragment"
+        app:destination="@id/menuFragment"/>
+    <fragment
+        android:id="@+id/uurroosterDetailFragment"
+        android:name="be.vives.vivesplus.screens.uurroosterdetail.UurroosterDetailFragment"
+        android:label="fragment_uurrooster_detail"
+        tools:layout="@layout/fragment_uurrooster_detail" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="eventType"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_uurroosterDetailFragment_to_uurroosterFragment"
+            app:destination="@id/uurroosterFragment"
+            app:popUpTo="@id/uurroosterFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_uurroosterDetailFragment_to_adminAbsencesFragment"
+            app:destination="@id/adminAbsencesFragment"
+            app:popUpTo="@id/uurroosterDetailFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_uurroosterDetailFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment">
+        <argument
+            android:name="description"
+            app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="ScannerFragment"
+        android:label="ScannerFragment" >
+        <action
+            android:id="@+id/action_scannerFragment_to_hostScannerFragment"
+            app:destination="@id/hostScannerFragment">
+
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/presenceQRFragment"
+        android:name="be.vives.vivesplus.screens.identity.PresenceQrFragment"
+        android:label="fragment_presence_q_r"
+        tools:layout="@layout/fragment_presence_qr" />
+    <fragment
+        android:id="@+id/hostScannerFragment"
+        android:name="be.vives.vivesplus.screens.profilesettings.docent.aanwezigheden.HostScannerFragment"
+        android:label="HostScannerFragment" >
+        <action
+            android:id="@+id/action_hostScannerFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+    </fragment>
+
+</navigation>

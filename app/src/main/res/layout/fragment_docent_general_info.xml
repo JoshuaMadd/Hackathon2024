@@ -1,0 +1,228 @@
+
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".screens.profilesettings.docent.campussettings.DocentCampusSettingsFragment">
+
+    <data>
+        <variable
+                name="myModel"
+                type="be.vives.vivesplus.screens.profilesettings.docent.generalinfo.DocentGeneralInfoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintBottom_toTopOf="@id/btnsaveGeneralInfo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <TextView
+                        android:id="@+id/NameTitleTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/naam"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                        android:id="@+id/NameTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:text="@{myModel.name}"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/NameTitleTv"
+                        app:layout_constraintStart_toStartOf="@+id/NameTitleTv"
+                        app:layout_constraintTop_toBottomOf="@id/NameTitleTv" />
+
+                <TextView
+                        android:id="@+id/FirstNameTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/firstName"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/NameTv"
+                        app:layout_constraintTop_toBottomOf="@+id/NameTv" />
+
+                <EditText
+                        android:id="@+id/editTextTextPersonName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="textPersonName"
+                        android:text="@{myModel.firstname}"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/FirstNameTv"
+                        app:layout_constraintStart_toStartOf="@+id/FirstNameTv"
+                        app:layout_constraintTop_toBottomOf="@id/FirstNameTv" />
+
+                <TextView
+                        android:id="@+id/EmailTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/email"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/editTextTextPersonName"
+                        app:layout_constraintTop_toBottomOf="@id/editTextTextPersonName" />
+
+                <TextView
+                        android:id="@+id/editTextTextEmailAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:text="@{myModel.email}"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/EmailTv"
+                        app:layout_constraintTop_toBottomOf="@id/EmailTv" />
+
+                <TextView
+                        android:id="@+id/TelephoneTv"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/telephone"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/editTextTextEmailAddress"
+                        app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress" />
+
+                <EditText
+                        android:id="@+id/editTextPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:inputType="phone"
+                        android:text="@{myModel.phone}"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/TelephoneTv"
+                        app:layout_constraintTop_toBottomOf="@id/TelephoneTv" />
+
+                <TextView
+                        android:id="@+id/infoPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="1dp"
+                        android:maxLines="5"
+                        android:singleLine="false"
+                        android:text="@string/infoPhoneNumber"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+
+                <TextView
+                        android:id="@+id/jobTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/jobTitle"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/editTextPhone"
+                        app:layout_constraintTop_toBottomOf="@id/infoPhone" />
+
+
+                <EditText
+                        android:id="@+id/editJobTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lines="5"
+                        android:maxLines="8"
+                        android:text="@{myModel.jobTitle}"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/jobTitle"
+                        app:layout_constraintTop_toBottomOf="@id/jobTitle" />
+
+                <TextView
+                        android:id="@+id/infoFunction"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:singleLine="false"
+                        android:text="@string/infoFunctie"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editJobTitle" />
+
+
+                <Switch
+                        android:id="@+id/switchBachelor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/bachelor"
+                        app:layout_constraintStart_toStartOf="@+id/infoFunction"
+                        app:layout_constraintTop_toBottomOf="@+id/infoFunction"
+                        tools:layout_editor_absoluteX="250dp"
+                        tools:layout_editor_absoluteY="561dp" />
+
+
+                <Switch
+                        android:id="@+id/switchGraduaat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/graduaat"
+                        app:layout_constraintStart_toStartOf="@+id/switchBachelor"
+                        app:layout_constraintTop_toBottomOf="@+id/switchBachelor" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <Button
+                android:id="@+id/btnsaveGeneralInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="14dp"
+                android:onClick="@{() -> myModel.btnSaveClicked()}"
+                android:text="@string/savebutton"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

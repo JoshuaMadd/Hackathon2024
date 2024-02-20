@@ -1,0 +1,417 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".screens.profilesettings.docent.DocentProfileSettingsFragment">
+
+    <data>
+        <variable
+            name="myModel"
+            type="be.vives.vivesplus.screens.profilesettings.docent.DocentProfileSettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+      >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:id="@+id/scrollViewDocentSettings"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            tools:ignore="SpeakableTextPresentCheck">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_with_backgroundcolor">
+
+                    <ImageView
+                        android:id="@+id/imageProfile"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:clickable="true"
+                        android:onClick="@{() -> myModel.btnImageProfileClicked()}"
+                        android:src="@drawable/ic_baseline_person_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/editPf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@+id/imageProfile"
+                        app:layout_constraintEnd_toEndOf="@+id/imageProfile"
+                        app:layout_constraintTop_toBottomOf="@+id/imageProfile"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
+                        android:onClick="@{() -> myModel.btnImageProfileClicked()}"
+                        android:background="@drawable/dashboard_card"
+                        android:src="@drawable/ic_baseline_mode_edit_24"
+                        tools:layout_editor_absoluteY="46dp" />
+
+                    <TextView
+                        android:id="@+id/txtName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:text="@{myModel.name}"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/imageProfile"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Yves Seurync" />
+
+                    <TextView
+                        android:id="@+id/txtKulNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="@{myModel.kulNumber}"
+                        android:textSize="13sp"
+                        app:layout_constraintStart_toEndOf="@+id/imageProfile"
+                        app:layout_constraintTop_toBottomOf="@+id/txtName"
+                        tools:text="u0113357" />
+
+                    <ImageView
+                        android:id="@+id/turnClockwisePf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/dashboard_card"
+                        android:onClick="@{() -> myModel.btnTurnProfileImgClicked()}"
+                        android:src="@drawable/ic_baseline_turnprofile_right_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageProfile"
+                        app:layout_constraintEnd_toStartOf="@id/imageProfile"
+                        app:layout_constraintStart_toStartOf="@+id/imageProfile"
+                        app:layout_constraintTop_toBottomOf="@+id/imageProfile"
+                        tools:layout_constraintTop_toBottomOf="@id/imageProfile" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ScrollView
+                        android:id="@+id/scrollView2"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="SpeakableTextPresentCheck">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/generalInfoBlock"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:orientation="vertical"
+                                android:clickable="true"
+                                android:onClick="@{() -> myModel.btnGeneralInfoClicked()}"
+                                tools:layout_editor_absoluteX="12dp"
+                                tools:layout_editor_absoluteY="112dp">
+
+                                <TextView
+                                    android:id="@+id/generalInfoTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/general_info"
+                                    android:textSize="24sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/generalInfoSubtitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="@string/general_info_subtitle_docents"
+                                    android:textSize="18sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@id/generalInfoTitle"
+                                    app:layout_constraintTop_toBottomOf="@id/generalInfoTitle" />
+
+                                <ImageView
+                                    android:id="@+id/arrowGeneralInfo"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:clickable="true"
+                                    android:onClick="@{() -> myModel.btnGeneralInfoClicked()}"
+                                    android:src="@drawable/arrow_right"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/fieldOfStudyBlock"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:orientation="vertical"
+                                android:clickable="true"
+                                android:onClick="@{() -> myModel.btnFOSClicked()}"
+                                tools:layout_editor_absoluteX="12dp"
+                                tools:layout_editor_absoluteY="112dp">
+
+                                <TextView
+                                    android:id="@+id/fieldOfStudyTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/field_of_study_title"
+                                    android:textSize="24sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/fieldOfStudySubtitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="@string/field_of_study_subtitle_docent"
+                                    android:textSize="18sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@id/fieldOfStudyTitle"
+                                    app:layout_constraintTop_toBottomOf="@id/fieldOfStudyTitle" />
+
+                                <ImageView
+                                    android:id="@+id/arrowFieldOfStudy"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:clickable="true"
+                                    android:onClick="@{() -> myModel.btnFOSClicked()}"
+                                    android:src="@drawable/arrow_right"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/campusBlock"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:orientation="vertical"
+                                android:clickable="true"
+                                android:onClick="@{() -> myModel.btnCampusClicked()}"
+                                tools:layout_editor_absoluteX="12dp"
+                                tools:layout_editor_absoluteY="112dp">
+
+                                <TextView
+                                    android:id="@+id/campusTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/campus_title"
+                                    android:textSize="24sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/campusSubtitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="@string/campus_subtitle_docent"
+                                    android:textSize="18sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@id/campusTitle"
+                                    app:layout_constraintTop_toBottomOf="@id/campusTitle" />
+
+                                <ImageView
+                                    android:id="@+id/arrowCampus"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:clickable="true"
+                                    android:onClick="@{() -> myModel.btnCampusClicked()}"
+                                    android:src="@drawable/arrow_right"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/opleidingBlock"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:orientation="vertical"
+                                android:clickable="true"
+                                android:onClick="@{() -> myModel.btnEducationsClicked()}"
+                                tools:layout_editor_absoluteX="12dp"
+                                tools:layout_editor_absoluteY="112dp">
+
+                                <TextView
+                                    android:id="@+id/opleidingTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/opleiding_title"
+                                    android:textSize="24sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/opleidingSubtitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="@string/opleiding_subtitle_docent"
+                                    android:textSize="18sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@id/opleidingTitle"
+                                    app:layout_constraintTop_toBottomOf="@id/opleidingTitle" />
+
+                                <ImageView
+                                    android:id="@+id/arrowOpleiding"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:clickable="true"
+                                    android:onClick="@{() -> myModel.btnEducationsClicked()}"
+                                    android:src="@drawable/arrow_right"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/transportBlock"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="25dp"
+                                    android:orientation="vertical"
+                                    android:clickable="true"
+                                    android:onClick="@{() -> myModel.btnTransportClicked()}"
+                                    tools:layout_editor_absoluteX="12dp"
+                                    tools:layout_editor_absoluteY="112dp">
+
+                                <TextView
+                                    android:id="@+id/transportTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/transport_title"
+                                    android:textSize="24sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/transportSubtitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="@string/transport_subtitle_docent"
+                                    android:textSize="18sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@id/transportTitle"
+                                    app:layout_constraintTop_toBottomOf="@id/transportTitle" />
+
+                                <ImageView
+                                    android:id="@+id/arrowTransport"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:clickable="true"
+                                    android:onClick="@{() -> myModel.btnTransportClicked()}"
+                                    android:src="@drawable/arrow_right"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/deleteDocentBlock"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="25dp"
+                                android:orientation="vertical"
+                                android:clickable="true"
+                                android:onClick="@{() -> myModel.btnDeleteAccountClicked()}"
+                                tools:layout_editor_absoluteX="12dp"
+                                tools:layout_editor_absoluteY="112dp">
+
+                                <TextView
+                                    android:id="@+id/deleteDocentTitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/deleteUserTitle"
+                                    android:textSize="24sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/deleteDocentSubtitle"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="30dp"
+                                    android:text="@string/deleteUserSubtitle"
+                                    android:textSize="18sp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="@id/deleteDocentTitle"
+                                    app:layout_constraintTop_toBottomOf="@id/deleteDocentTitle" />
+
+                                <ImageView
+                                    android:id="@+id/arrowDeleteDocent"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:clickable="true"
+                                    android:onClick="@{() -> myModel.btnDeleteAccountClicked()}"
+                                    android:src="@drawable/arrow_right"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </LinearLayout>
+                    </ScrollView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

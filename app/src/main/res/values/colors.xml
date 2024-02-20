@@ -1,10 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#D92120</color>
+    <color name="colorPrimaryDark">#D92120</color>
+    <color name="colorAccent">#D92000</color>
+
+    <color name="colorMenuBackground">#d6d6d6</color>
+    <color name="colorAppBackground">#f1f1f1</color>
+
+    <color name="red_to_white">#D92120</color>
+    <color name="white_to_red">#FFFFFF</color>
+
+    <color name="color_ic_main">#d1d1d1</color>
+
+    <color name="schedule_info">#EAE9E9</color>
+    <color name="colorUurroosterAbsence">#a1a1a1</color>
+    <color name="colorUurroosterAcademic">#3399FF</color>
+    <color name="colorUurroosterCourse">#CF2E25</color>
+
+
+    <color name="colorUurrooster_1">#eb4034</color>
+    <color name="colorUurrooster_2">#4287f5</color>
+    <color name="colorUurrooster_3">#32a852</color>
+    <color name="colorUurrooster_4">#fcba03</color>
+    <color name="colorUurrooster_5">#f54242</color>
+    <color name="colorUurrooster_6">#b042f5</color>
+    <color name="colorUurrooster_7">#f542dd</color>
+    <color name="colorUurrooster_8">#f59536</color>
+    <color name="colorUurrooster_9">#43dcec</color>
+
+    <color name="colorWarn">#FF7900</color>
+
+    <color name="colorStudieGebiedBiotech">#28963C</color>
+    <color name="colorStudieGebiedGezondheidszorg">#18B7AE</color>
+    <color name="colorStudieGebiedHwb">#185B9D</color>
+    <color name="colorStudieGebiedIwt">#18A5C9</color>
+    <color name="colorStudieGebiedOnderwijs">#E47B1C</color>
+    <color name="colorStudieGebiedSaw">#7F3879</color>
+    <color name="headerRow_Column_color">#ffefefef</color>
+    <color name="HeaderRow_Column_Text_color">#0A0A0A</color>
+    <color name="Inside_icon_color">#8C8C8C</color>
+    <color name="newNavBar"> #CF2E25</color>
+    <color name="campusDashboardBackground">#D5CBCB</color>
+
+    <color name="blackToWhite">#000000</color>
+
+    <color name="red">#D42E26</color>
+    <color name="blue">#6684BC</color>
+
+
+    <color name="divider">#D5CBCB</color>
 </resources>

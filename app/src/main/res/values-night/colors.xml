@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorAppBackground">#FFFFFF</color>
+    <color name="color_ic_main">#D92120</color>
+    <color name="red_to_white">#FFFFFF</color>
+    <color name="white_to_red">#D92120</color>
+    <color name="colorMenuBackground">#0A0A0A</color>
+    <color name="headerRow_Column_color">#2B2B2B</color>
+    <color name="HeaderRow_Column_Text_color">#FFFFFF</color>
+    <color name="Inside_icon_color">#FFFFFF</color>
+    <color name="schedule_info">#5A5A5A</color>
+    <color name="campusDashboardBackground">#0A0A0A</color>
+    <color name="blackToWhite">#FFFFFF</color>
+    <color name="divider">#D5CBCB</color>
+
+</resources>

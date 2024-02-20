@@ -1,0 +1,151 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ProgressBar
+                android:visibility="gone"
+                android:id="@+id/indicator"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <LinearLayout
+                android:id="@+id/content"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context="be.vives.vivesplus.screens.admin.absences.AdminNewAbsencesFragment">
+
+            <RelativeLayout
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
+
+                <TextView
+                        android:id="@+id/startdatum"
+                        android:textSize="22sp"
+                        android:text="@string/start_datum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"/>
+
+                <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:drawablePadding="5dp"
+                        android:drawableStart="@drawable/ic_edit_8c8c8c_24dp"
+                        android:id="@+id/startDate"
+                        android:layout_below="@id/startdatum"
+                        android:textSize="16sp"
+                        tools:text="Maandag 5 maart 2020"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"/>
+
+                <TextView
+                        android:id="@+id/starttijd"
+                        android:textSize="22sp"
+                        android:text="@string/start_tijd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"/>
+
+                <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:drawablePadding="5dp"
+                        android:drawableStart="@drawable/ic_edit_8c8c8c_24dp"
+                        android:id="@+id/startTime"
+                        android:layout_below="@id/starttijd"
+                        android:textSize="16sp"
+                        tools:text="8:00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp">
+
+
+                <TextView
+                        android:id="@+id/einddatum"
+                        android:textSize="22sp"
+                        android:text="@string/eind_datum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"/>
+
+                <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:drawablePadding="5dp"
+                        android:drawableStart="@drawable/ic_edit_8c8c8c_24dp"
+                        android:id="@+id/endDate"
+                        android:layout_below="@id/einddatum"
+                        android:textSize="16sp"
+                        tools:text="Dinsdag 6 maart 2020"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"/>
+
+                <TextView
+                        android:id="@+id/eindtijd"
+                        android:textSize="22sp"
+                        android:text="@string/eind_tijd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"/>
+
+                <TextView
+                        android:textColor="@color/colorPrimary"
+                        android:drawablePadding="5dp"
+                        android:drawableStart="@drawable/ic_edit_8c8c8c_24dp"
+                        android:id="@+id/endTime"
+                        android:layout_below="@id/eindtijd"
+                        android:textSize="16sp"
+                        tools:text="18:00"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"/>
+
+
+            </RelativeLayout>
+
+            <EditText
+                    android:id="@+id/remark"
+                    android:hint="@string/reden_afwezigheid_voor_administatie"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:minLines="8"
+                    android:gravity="top|start"
+                    android:maxLines="8"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:scrollbars="vertical" />
+
+        </LinearLayout>
+
+        <Button
+                android:layout_alignParentBottom="true"
+                android:layout_margin="16dp"
+                android:id="@+id/btnRegister"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:background="@drawable/profile_button"
+                android:textAllCaps="false"
+                android:text="@string/registreer_afwezigheid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="viewModel" type="be.vives.vivesplus.screens.uurrooster.UurroosterViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/toestemmingClickable"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="#FF9800"
+            android:onClick="@{() -> viewModel.onClickToestemmingGeven()}"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtPermission"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|center_vertical"
+                android:text="@string/toestemmingUurrooster"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+        <WebView
+            android:id="@+id/toestemmingWebView"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.alamkanak.weekview.WeekView
+            android:id="@+id/weekView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:columnGap="8dp"
+            app:dayBackgroundColor="#05000000"
+            app:eventTextColor="@android:color/white"
+            app:headerBackgroundColor="@color/headerRow_Column_color"
+            app:headerPadding="12dp"
+            app:headerTextColor="@color/HeaderRow_Column_Text_color"
+            app:hourHeight="60dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toestemmingClickable"
+            app:layout_constraintVertical_bias="0.0"
+            app:numberOfVisibleDays="2"
+            app:showNowLine="true"
+            app:nowLineStrokeWidth="1.5dp"
+            app:nowLineColor="#D5CBCB"
+            app:timeColumnBackgroundColor="@color/headerRow_Column_color"
+            app:timeColumnTextColor="@color/HeaderRow_Column_Text_color"
+            app:timeColumnTextSize="12sp"
+            app:todayBackgroundColor="#1848adff"
+            tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

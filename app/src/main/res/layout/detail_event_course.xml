@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+
+        <TextView
+            android:id="@+id/eventDetailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:paddingTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Practice Enterprise 3 en interdisciplinaire studies van actuele thema's" />
+
+        <TextView
+            android:id="@+id/eventDetailGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eventDetailTitle"
+            tools:text="3SD + 3BIT + 3NET"/>
+
+        <TextView
+            android:id="@+id/eventCancelledDetailSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="@string/aCancelledCourse"
+            android:textColor="@color/red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/eventDetailGroup"
+            app:layout_constraintTop_toBottomOf="@id/eventDetailTitle"/>
+
+        <TextView
+            android:id="@+id/eventDetailStartDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="@id/eventDetailImg"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="27 februari 2023"/>
+
+
+        <TextView
+            android:id="@+id/eventDetailEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/eventDetailImg"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="5 maart 2023"/>
+
+        <ImageView
+            android:id="@+id/eventDetailImg"
+            android:layout_width="27dp"
+            android:layout_height="55dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/eventDetailEndTime"
+            app:layout_constraintTop_toBottomOf="@id/eventDetailGroup"
+            app:srcCompat="@drawable/time_stamp_circles"/>
+
+        <TextView
+            android:id="@+id/eventDetailStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eventDetailGroup"
+            tools:text="08:45"/>
+
+        <TextView
+            android:id="@+id/eventDetailEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/eventDetailImg"
+            tools:text="10:45"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

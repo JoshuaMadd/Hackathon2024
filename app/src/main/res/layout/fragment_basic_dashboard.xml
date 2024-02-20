@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".screens.dashboard.BasicDashboardFragment">
+
+
+        <LinearLayout
+                android:id="@+id/basicDashboard"
+                android:layout_width="332dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+            <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                <RelativeLayout
+                        android:id="@+id/absencesCard"
+                        android:layout_width="155dp"
+                        android:layout_height="105dp"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/dashboard_card">
+
+                    <info.androidhive.fontawesome.FontTextView
+                            android:id="@+id/absencesIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/fa_user_clock_solid"
+                            android:textColor="@android:color/white"
+                            android:textSize="40sp"
+                            app:solid_icon="true"
+                            tools:ignore="MissingClass" />
+
+
+                    <TextView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/afwezigheden"
+                            android:textColor="@color/white" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                        android:id="@+id/restoCard"
+                        android:layout_width="155dp"
+                        android:layout_height="105dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/dashboard_card">
+
+                    <info.androidhive.fontawesome.FontTextView
+                            android:id="@+id/restaurantIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/fa_utensils_solid"
+                            android:textColor="@android:color/white"
+                            android:textSize="40sp"
+                            app:solid_icon="true" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/restaurant"
+                            android:textColor="@color/white" />
+
+                </RelativeLayout>
+
+
+                <!-- <RelativeLayout
+                        android:id="@+id/docentenCard"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/dashboard_card"
+                        android:visibility="gone">
+
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="@string/afwezigheden"
+                            android:src="@drawable/ic_settings_ffffff_64dp" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="Beheer" />
+
+                </RelativeLayout>-->
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <RelativeLayout
+                        android:id="@+id/trafficCard"
+                        android:layout_width="155dp"
+                        android:layout_height="105dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/dashboard_card">
+
+                    <info.androidhive.fontawesome.FontTextView
+                            android:id="@+id/transportIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/fa_bus_solid"
+                            android:textColor="@android:color/white"
+                            android:textSize="40sp"
+                            app:solid_icon="true"
+
+                            >
+
+                    </info.androidhive.fontawesome.FontTextView>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/bus_trein"
+                            android:textColor="@android:color/white" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                        android:id="@+id/messagesCard"
+                        android:layout_width="155dp"
+                        android:layout_height="105dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/dashboard_card">
+
+
+
+                    <info.androidhive.fontawesome.FontTextView
+                            android:id="@+id/messagesIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/fa_comment_alt"
+                            android:textColor="@android:color/white"
+                            android:textSize="40sp">
+                    </info.androidhive.fontawesome.FontTextView>
+
+                    <TextView
+                            android:visibility="gone"
+                            android:id="@+id/txtCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="100dp"
+                            android:layout_marginEnd="0dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/ic_baseline_brightness_1_24"
+                            android:gravity="center"
+                            android:minWidth="17sp"
+                            android:text="0"
+                            android:textColor="@android:color/holo_red_dark"
+                            android:textSize="12sp" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/messages"
+                            android:textColor="@android:color/white" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                    android:id="@+id/last_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                <RelativeLayout
+                        android:id="@+id/docentenCard"
+                        android:layout_width="155dp"
+                        android:layout_height="105dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/dashboard_card">
+
+                    <info.androidhive.fontawesome.FontTextView
+                            android:id="@+id/settingsIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/fa_user_cog_solid"
+                            android:textColor="@android:color/white"
+                            android:textSize="40sp"
+                            app:solid_icon="true">
+
+                    </info.androidhive.fontawesome.FontTextView>
+
+                    <TextView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/management"
+                            android:textColor="@android:color/white" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</layout>
+

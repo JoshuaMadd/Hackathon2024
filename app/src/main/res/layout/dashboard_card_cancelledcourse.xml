@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cancelledcourseid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border">
+
+        <ImageView
+                android:id="@+id/imageTransport"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toBottomOf="@+id/txtCourse"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtCourse"
+                app:srcCompat="@drawable/user_large_slash_solid" />
+
+
+        <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="27dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/txtCancelledMessage"
+                app:layout_constraintEnd_toStartOf="@+id/txtEndLesson"
+                app:layout_constraintTop_toTopOf="@+id/txtCourse"
+                app:srcCompat="@drawable/time_stamp_circles" />
+
+        <TextView
+                android:id="@+id/txtStartLesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/txtEndLesson"
+                app:layout_constraintTop_toTopOf="@+id/imageView2"
+                tools:text="8u45" />
+
+        <TextView
+                android:id="@+id/txtEndLesson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                app:layout_constraintEnd_toStartOf="@+id/imgActionCancelledCourse"
+                tools:text="10u45" />
+
+        <TextView
+                android:id="@+id/txtCourse"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                app:layout_constraintStart_toEndOf="@+id/imageTransport"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Professional Communication 2" />
+
+        <TextView
+                android:id="@+id/txtCancelledMessage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/txtCourse"
+                app:layout_constraintTop_toBottomOf="@+id/txtCourse"
+                tools:text="Seurynck Yves is afwezig" />
+
+        <ImageView
+                android:id="@+id/imgActionCancelledCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_right_full_red" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

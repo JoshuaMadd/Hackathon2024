@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        android:orientation="horizontal"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:background="@color/colorStudieGebiedHwb"
+        android:id="@+id/container">
+
+    <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:layout_gravity="center"
+                android:src="@mipmap/vives_logo_white"
+                android:layout_width="120dp"
+                android:layout_height="80dp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <TextView
+                android:maxWidth="250dp"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                tools:text="Handelswetenschappen &amp; Bedrijfskunde"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+    </FrameLayout>
+
+</LinearLayout>

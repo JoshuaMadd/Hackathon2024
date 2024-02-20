@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/modernDashboardFragment"
+        android:icon="@drawable/ic_dashboard_8c8c8c_24dp"
+        android:title="@string/dashboard" />
+
+    <item
+        android:id="@+id/uurroosterFragment"
+        android:icon="@drawable/ic_view_agenda_8c8c8c_24dp"
+        android:title="@string/uurrooster" />
+
+    <item
+        android:id="@+id/menuFragment"
+        android:icon="@drawable/ic_baseline_menu_24"
+        android:title="@string/menu" />
+</menu>

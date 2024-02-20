@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:padding="4dp"
+        android:id="@+id/container">
+
+
+    <RelativeLayout android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="202dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="5dp"
+                android:textSize="18sp"
+                tools:text="Kortrijk - Zottegem"
+                app:drawableStartCompat="@drawable/ic_train_8c8c_19dp" />
+    <TextView
+            android:layout_alignParentEnd="true"
+
+            android:id="@+id/overstappen"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:textSize="14sp"
+            tools:text="1 overstap"
+            app:drawableStartCompat="@drawable/ic_transfer_within_a_station_8c8c8c_24dp" />
+</RelativeLayout>
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:drawablePadding="5dp"
+                android:id="@+id/times"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:text="13:53 - 14:35"
+                app:drawableStartCompat="@drawable/ic_access_time_8c8c8c_17dp" />
+
+        <TextView
+                android:layout_alignParentEnd="true"
+                android:id="@+id/delay"
+                android:drawablePadding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWarn"
+                android:textSize="16sp"
+                tools:text="+3 min vertraging"
+                app:drawableStartCompat="@drawable/ic_warning_warncolor_17dp" />
+    </RelativeLayout>
+
+    <TextView
+            android:drawablePadding="5dp"
+            android:id="@+id/perron"
+            android:layout_width="wrap_content"
+            android:textSize="14sp"
+            android:layout_height="wrap_content"
+            tools:text="Perron 3"
+            app:drawableStartCompat="@drawable/ic_platform" />
+
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#8c8c8c"/>
+
+
+
+</LinearLayout>

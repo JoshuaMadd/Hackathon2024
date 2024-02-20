@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="be.vives.vivesplus.model.EventDetail" />
+        <import type="be.vives.vivesplus.model.GenericEventDetail" />
+        <import type="be.vives.vivesplus.model.CourseEventDetail" />
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="be.vives.vivesplus.screens.uurroosterdetail.UurroosterDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:id="@+id/detailCourseScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+
+            <LinearLayout
+                android:id="@+id/eventDetailCancelledBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="16dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/user_large_slash_solid"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/red"
+                    android:textSize="20sp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="@string/aCancelledCourse"/>
+
+            </LinearLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/eventDetailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="4dp"
+                    android:text="@{viewModel.bindingEvent.description}"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Practice Enterprise 3 en interdisciplinaire studies van actuele thema's" />
+
+                <TextView
+                    android:id="@+id/eventDetailGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.bindingEvent.groupInfo}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/eventDetailTitle"
+                    tools:text="3SD + 3BIT + 3NET" />
+
+
+
+                <TextView
+                    android:id="@+id/eventDetailStartDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.bindingEvent.startDate}"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/eventDetailImg"
+                    tools:text="27 februari 2023" />
+
+                <TextView
+                    android:id="@+id/eventDetailEndDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.bindingEvent.endDate}"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/eventDetailImg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="5 maart 2023" />
+
+                <ImageView
+                    android:id="@+id/eventDetailImg"
+                    android:layout_width="27dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/eventDetailEndTime"
+                    app:layout_constraintTop_toBottomOf="@id/eventDetailGroup"
+                    app:srcCompat="@drawable/time_stamp_circles" />
+
+                <TextView
+                    android:id="@+id/eventDetailStartTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:text="@{viewModel.bindingEvent.startTime}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/eventDetailGroup"
+                    tools:text="08:45" />
+
+                <TextView
+                    android:id="@+id/eventDetailEndTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:text="@{viewModel.bindingEvent.endTime}"
+                    app:layout_constraintBottom_toBottomOf="@id/eventDetailImg"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="10:45" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/eventDetailTeacherBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.bindingEvent.teachers.isEmpty() ? View.GONE : View.VISIBLE}">
+
+                <View
+                    android:id="@+id/dividerDetailTeacherBlock"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_height="1dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.bindingEvent.teachers}"
+                    android:textSize="16sp"
+                    tools:text="Seurynck Yves"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/eventDetailLocationBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.bindingEvent.locations.isEmpty() ? View.GONE : View.VISIBLE}">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.bindingEvent.locations}"
+                    android:textSize="16sp"
+                    tools:text="H - 2.11 leslokaal met stopc. (32p)" />
+
+
+
+                <org.osmdroid.views.MapView
+                    android:id="@+id/mapView"
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    tilesource="Mapnik"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/makeAbsenceSaveBlock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/divider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registreer_afwezigheid"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/txtRemarkDetailAbsence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:hint="@string/reason_absence"
+                    android:lines="4"
+                    android:maxLines="4"
+                    android:minLines="1"
+                    android:textSize="17sp"
+                    android:text="@={viewModel.txtRemarkMakeAbsence}" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/reason_absence_optional"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/btnDetailSaveAbsence"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_weight="1"
+                        android:text="@string/savebutton"
+                        android:layout_margin="8dp"
+                        android:onClick="@{() -> viewModel.btnSaveAbsenceClicked()}" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnDetailCancelAbsence"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/white"
+                        android:backgroundTintMode="add"
+                        android:onClick="@{() -> viewModel.btnCancelAbsenceClicked()}"
+                        android:text="@string/annuleer"
+                        app:backgroundTint="@android:color/white"
+                        app:strokeColor="@android:color/black"
+                        app:strokeWidth="2dp"
+                        android:textColor="@android:color/black" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnScanPrecenses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="@string/scan_precenses"
+                android:onClick="startScanner"
+                android:visibility="gone"
+                android:layout_marginBottom="8dp"/>
+
+            <Button
+                android:id="@+id/btnDetailAbsence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:text="@string/i_am_absent_this_course"
+                android:onClick="@{() -> viewModel.btnAbsentClicked()}"
+                android:layout_marginBottom="8dp"/>
+
+
+
+
+            <Button
+                android:id="@+id/btnDetailManageAbscence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/manage_this_absence"
+                android:visibility="gone"
+                android:onClick="@{() -> viewModel.btnManageAbsenceClicked()}"
+                android:layout_marginBottom="8dp"/>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>

@@ -1,7 +1,7 @@
 *.iml
 .gradle
 /local.properties
-/.idea
+/.idea/
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -12,5 +12,8 @@
 /build
 /captures
 .externalNativeBuild
-.cxx
-local.properties
+.idea/deploymentTargetDropDown.xml
+app/release/app-release.apk
+app/release/output-metadata.json
+.idea/deploymentTargetDropDown.xml
+

@@ -1,0 +1,30 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+    }
+    buildTypes {
+        release {
+        }
+    }
+}
+
+configurations {
+    javadocDeps
+}
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    javadocDeps 'androidx.appcompat:appcompat:1.0.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+
+apply from: 'gradle-mvn-push.gradle'
