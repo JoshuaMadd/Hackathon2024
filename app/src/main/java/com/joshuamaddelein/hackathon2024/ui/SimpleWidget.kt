@@ -143,7 +143,6 @@ class SimpleWidget : GlanceAppWidget() {
     {
         val lazyListState = rememberLazyListState()
         LazyColumn(
-
         )
         {
             items(list) { item ->
@@ -156,7 +155,7 @@ class SimpleWidget : GlanceAppWidget() {
     fun ItemListMedium(list: List<Les>)
     {
         LazyColumn(
-            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).height(180.dp).padding(
+            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).padding(
                 start = 10.dp,
                 end = 10.dp
             )
@@ -172,7 +171,7 @@ class SimpleWidget : GlanceAppWidget() {
     fun ItemListBig(list: List<Les>)
     {
         LazyColumn(
-            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).height(320.dp).padding(
+            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).padding(
                 start = 10.dp,
                 end = 10.dp,
                 bottom = 5.dp,
