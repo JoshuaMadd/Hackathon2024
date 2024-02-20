@@ -2,23 +2,38 @@ package com.joshuamaddelein.hackathon2024.ui
 
 import android.app.AlertDialog
 import android.content.Context
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.window.Dialog
 import androidx.glance.Button
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalSize
+import androidx.glance.action.actionStartActivity
 import androidx.glance.action.clickable
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
@@ -29,16 +44,18 @@ import androidx.glance.appwidget.lazy.items
 import androidx.glance.appwidget.provideContent
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Column
-import androidx.glance.layout.Row
-import androidx.glance.layout.Spacer
+import androidx.glance.layout.Box
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.height
 import androidx.glance.layout.padding
 import androidx.glance.layout.width
 import androidx.glance.text.Text
+import com.joshuamaddelein.hackathon2024.Greeting
+import com.joshuamaddelein.hackathon2024.MainActivity
 import com.joshuamaddelein.hackathon2024.R
 import com.joshuamaddelein.hackathon2024.data.model.Les
+import com.joshuamaddelein.hackathon2024.ui.theme.Hackathon2024Theme
 import com.joshuamaddelein.hackathon2024.util.MockUser
 
 class SimpleWidget : GlanceAppWidget() {
@@ -77,7 +94,7 @@ class SimpleWidget : GlanceAppWidget() {
             } else if (size.height > SMALL_RECTANGLE.height && size.height <= MEDIUM_RECTANGLE.height) {
                 Medium_Widget()
             } else {
-                Small_Widget()
+                Small_Widget(size)
             }
         }
     }
@@ -97,15 +114,21 @@ class SimpleWidget : GlanceAppWidget() {
     }
 
     @Composable
-    fun Small_Widget() {
-        ItemListSmall(list = MockUser.getUser().lessen)
+    fun Small_Widget(size: DpSize) {
+        ItemListSmall(list = MockUser.getUser().lessen, size = size)
     }
 
     @Composable
-    fun ItemCard(les: Les)
+    fun ItemCard(les: Les, size: DpSize?)
     {
-        Column(modifier = GlanceModifier.padding(bottom = 10.dp)) {
-            Column(modifier = GlanceModifier.background(Color.Red, Color.Red).height(90.dp).fillMaxWidth().cornerRadius(10.dp)) {
+        var sizeW = size
+        if (sizeW == null) {
+            sizeW = DpSize(0.dp,100.dp)
+        }
+        var padding = 10.dp
+        Box(modifier = GlanceModifier.background(Color.Red, Color.Gray).height(sizeW.height-padding).fillMaxWidth().cornerRadius(10.dp).padding(padding).clickable(
+            actionStartActivity<MainActivity>())) {
+            Column(modifier = GlanceModifier) {
                 Text(text = les.naam)
                 Text(text = les.lokaal)
                 Text(text = les.datum.toString())
@@ -116,19 +139,15 @@ class SimpleWidget : GlanceAppWidget() {
     }
 
     @Composable
-    fun ItemListSmall(list: List<Les>)
+    fun ItemListSmall(list: List<Les>, size: DpSize)
     {
+        val lazyListState = rememberLazyListState()
         LazyColumn(
-            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).height(100.dp).padding(
-                start = 10.dp,
-                end = 10.dp,
-                bottom = 5.dp,
-                top = 5.dp
-            )
+
         )
         {
             items(list) { item ->
-                ItemCard(les = item)
+                ItemCard(les = item, size = size)
             }
         }
     }
@@ -139,14 +158,12 @@ class SimpleWidget : GlanceAppWidget() {
         LazyColumn(
             modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).height(180.dp).padding(
                 start = 10.dp,
-                end = 10.dp,
-                bottom = 5.dp,
-                top = 5.dp
+                end = 10.dp
             )
         )
         {
             items(list) { item ->
-                ItemCard(les = item)
+                ItemCard(les = item, size = null)
             }
         }
     }
@@ -164,7 +181,7 @@ class SimpleWidget : GlanceAppWidget() {
         )
         {
             items(list) { item ->
-                ItemCard(les = item)
+                ItemCard(les = item, size = null)
             }
         }
     }
