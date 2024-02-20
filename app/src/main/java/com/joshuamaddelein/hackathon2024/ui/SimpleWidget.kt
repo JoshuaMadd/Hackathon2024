@@ -7,15 +7,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.ui.Modifier
@@ -49,6 +51,7 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.fillMaxWidth
 import androidx.glance.layout.height
 import androidx.glance.layout.padding
+import androidx.glance.layout.size
 import androidx.glance.layout.width
 import androidx.glance.text.Text
 import com.joshuamaddelein.hackathon2024.Greeting
@@ -106,10 +109,14 @@ class SimpleWidget : GlanceAppWidget() {
 
     @Composable
     fun Medium_Widget() {
-        Column(modifier = GlanceModifier) {
+        Box(modifier = GlanceModifier.fillMaxSize(), Alignment(Alignment.End, Alignment.Bottom)) {
             ItemListMedium(list = MockUser.getUser().lessen)
+        Box (contentAlignment = Alignment(Alignment.Start, Alignment.Top), modifier = GlanceModifier.padding(0.dp, 0.dp, 10.dp, 10.dp)) {
+            Box(modifier = GlanceModifier.clickable(actionStartActivity<MainActivity>()).size(50.dp).padding(5.dp).background(Color.Red, Color.Red).cornerRadius(20.dp), Alignment(Alignment.CenterHorizontally, Alignment.CenterVertically)) {
+                Image(provider = ImageProvider(R.drawable.qr), contentDescription = null, modifier = GlanceModifier.width(20.dp))
+            }
+        }
 
-            Image(provider = ImageProvider(R.drawable.qr), contentDescription = null, modifier = GlanceModifier.width(20.dp))
         }
     }
 
@@ -126,8 +133,8 @@ class SimpleWidget : GlanceAppWidget() {
             sizeW = DpSize(0.dp,100.dp)
         }
         var padding = 10.dp
-        Box(modifier = GlanceModifier.background(Color.Red, Color.Gray).height(sizeW.height-padding).fillMaxWidth().cornerRadius(10.dp).padding(padding).clickable(
-            actionStartActivity<MainActivity>())) {
+        Box(modifier = GlanceModifier.background(Color.Red, Color.Gray).height(sizeW.height-padding).fillMaxWidth().cornerRadius(10.dp).padding(padding)/*.clickable(
+            actionStartActivity<MainActivity>())*/) {
             Column(modifier = GlanceModifier) {
                 Text(text = les.naam)
                 Text(text = les.lokaal)
@@ -185,3 +192,4 @@ class SimpleWidget : GlanceAppWidget() {
         }
     }
 }
+
