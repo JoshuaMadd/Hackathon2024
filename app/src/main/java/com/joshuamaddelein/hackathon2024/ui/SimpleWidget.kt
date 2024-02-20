@@ -1,35 +1,11 @@
 package com.joshuamaddelein.hackathon2024.ui
 
-import android.app.AlertDialog
 import android.content.Context
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.snapping.rememberSnapFlingBehavior
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ProvidableCompositionLocal
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import androidx.glance.Button
 import androidx.glance.GlanceId
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
@@ -54,11 +30,9 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
 import androidx.glance.text.Text
-import com.joshuamaddelein.hackathon2024.Greeting
-import com.joshuamaddelein.hackathon2024.MainActivity
+import com.joshuamaddelein.hackathon2024.ParkingQrScreen
 import com.joshuamaddelein.hackathon2024.R
 import com.joshuamaddelein.hackathon2024.data.model.Les
-import com.joshuamaddelein.hackathon2024.ui.theme.Hackathon2024Theme
 import com.joshuamaddelein.hackathon2024.util.MockUser
 
 class SimpleWidget : GlanceAppWidget() {
@@ -104,19 +78,18 @@ class SimpleWidget : GlanceAppWidget() {
 
     @Composable
     fun Large_Widget() {
-        ItemListBig(list = MockUser.getUser().lessen)
+        ItemListNormal(list = MockUser.getUser().lessen)
     }
 
     @Composable
     fun Medium_Widget() {
         Box(modifier = GlanceModifier.fillMaxSize(), Alignment(Alignment.End, Alignment.Bottom)) {
-            ItemListMedium(list = MockUser.getUser().lessen)
-        Box (contentAlignment = Alignment(Alignment.Start, Alignment.Top), modifier = GlanceModifier.padding(0.dp, 0.dp, 10.dp, 10.dp)) {
-            Box(modifier = GlanceModifier.clickable(actionStartActivity<MainActivity>()).size(50.dp).padding(5.dp).background(Color.Red, Color.Red).cornerRadius(20.dp), Alignment(Alignment.CenterHorizontally, Alignment.CenterVertically)) {
-                Image(provider = ImageProvider(R.drawable.qr), contentDescription = null, modifier = GlanceModifier.width(20.dp))
+            ItemListNormal(list = MockUser.getUser().lessen)
+            Box (contentAlignment = Alignment(Alignment.Start, Alignment.Top), modifier = GlanceModifier.padding(0.dp, 0.dp, 10.dp, 10.dp)) {
+                Box(modifier = GlanceModifier.clickable(actionStartActivity<ParkingQrScreen>()).size(50.dp).padding(5.dp).background(Color.Red, Color.Red).cornerRadius(20.dp), Alignment(Alignment.CenterHorizontally, Alignment.CenterVertically)) {
+                    Image(provider = ImageProvider(R.drawable.qr), contentDescription = null, modifier = GlanceModifier.width(20.dp))
+                }
             }
-        }
-
         }
     }
 
@@ -126,7 +99,7 @@ class SimpleWidget : GlanceAppWidget() {
     }
 
     @Composable
-    fun ItemCard(les: Les, size: DpSize?)
+    fun ItemCardSmall(les: Les, size: DpSize?)
     {
         var sizeW = size
         if (sizeW == null) {
@@ -141,6 +114,28 @@ class SimpleWidget : GlanceAppWidget() {
                 Text(text = les.datum.toString())
             }
         }
+    }
+
+    @Composable
+    fun ItemCardNormal(les: Les, size: DpSize?)
+    {
+        var sizeW = size
+        if (sizeW == null) {
+            sizeW = DpSize(0.dp,100.dp)
+        }
+        var padding = 10.dp
+        Box (modifier = GlanceModifier.padding(0.dp,5.dp)) {
+            Box (modifier = GlanceModifier.background(Color.Gray, Color.Gray).fillMaxWidth().padding(3.dp).cornerRadius(13.dp), contentAlignment = Alignment(Alignment.CenterHorizontally, Alignment.CenterVertically)) {
+                Box(modifier = GlanceModifier.background(Color.White, Color.DarkGray).fillMaxWidth().height(sizeW.height-padding).cornerRadius(10.dp).padding(padding)/*.clickable(
+            actionStartActivity<MainActivity>())*/) {
+                    Column(modifier = GlanceModifier) {
+                        Text(text = les.naam)
+                        Text(text = les.lokaal)
+                        Text(text = les.datum.toString())
+                    }
+                }
+            }
+        }
 
 
     }
@@ -153,13 +148,13 @@ class SimpleWidget : GlanceAppWidget() {
         )
         {
             items(list) { item ->
-                ItemCard(les = item, size = size)
+                ItemCardSmall(les = item, size = size)
             }
         }
     }
 
     @Composable
-    fun ItemListMedium(list: List<Les>)
+    fun ItemListNormal(list: List<Les>)
     {
         LazyColumn(
             modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).padding(
@@ -169,25 +164,7 @@ class SimpleWidget : GlanceAppWidget() {
         )
         {
             items(list) { item ->
-                ItemCard(les = item, size = null)
-            }
-        }
-    }
-
-    @Composable
-    fun ItemListBig(list: List<Les>)
-    {
-        LazyColumn(
-            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).padding(
-                start = 10.dp,
-                end = 10.dp,
-                bottom = 5.dp,
-                top = 10.dp
-            )
-        )
-        {
-            items(list) { item ->
-                ItemCard(les = item, size = null)
+                ItemCardNormal(les = item, size = null)
             }
         }
     }
