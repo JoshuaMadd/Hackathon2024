@@ -52,13 +52,6 @@ class SimpleWidget : GlanceAppWidget() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            //ItemList(list = MockUser.getUser().lessen)
-//            Spacer(modifier = GlanceModifier.height(10.dp))
-//            Text(text = "VIVES PLUS WIDGET test",
-//                style = TextStyle(color = ColorProvider(day=Color.White, night=Color.Black),
-//                    fontSize = 16.sp)
-//            )
-
             if (size.height >= LARGE_RECTANGLE.height) {
                 Large_Widget()
             } else if (size.height > SMALL_RECTANGLE.height && size.height <= MEDIUM_RECTANGLE.height) {
