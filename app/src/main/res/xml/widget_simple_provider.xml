@@ -9,7 +9,7 @@
     android:resizeMode="horizontal|vertical"
     android:widgetCategory="home_screen"
     android:maxResizeWidth="100dp"
-
+    android:maxResizeHeight="400dp"
     >
 
 </appwidget-provider>
