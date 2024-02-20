@@ -12,14 +12,20 @@ import androidx.glance.LocalSize
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.background
+import androidx.glance.appwidget.cornerRadius
 import androidx.glance.appwidget.lazy.LazyColumn
 import androidx.glance.appwidget.lazy.items
 import androidx.glance.appwidget.provideContent
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Column
+import androidx.glance.layout.Spacer
 import androidx.glance.layout.fillMaxSize
+import androidx.glance.layout.fillMaxWidth
+import androidx.glance.layout.height
+import androidx.glance.layout.padding
 import androidx.glance.text.Text
 import com.joshuamaddelein.hackathon2024.data.model.Les
+import com.joshuamaddelein.hackathon2024.util.MockUser
 
 class SimpleWidget : GlanceAppWidget() {
 
@@ -48,9 +54,9 @@ class SimpleWidget : GlanceAppWidget() {
         Column(
             modifier = GlanceModifier
                 .fillMaxSize()
-                .background(day = Color.Black, night = Color.White),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalAlignment = Alignment.CenterVertically
+                .background(day = Color.White, night = Color.White),
+            horizontalAlignment = Alignment.Start,
+            verticalAlignment = Alignment.Top
         ) {
             if (size.height >= LARGE_RECTANGLE.height) {
                 Large_Widget()
@@ -64,37 +70,84 @@ class SimpleWidget : GlanceAppWidget() {
 
     @Composable
     fun Large_Widget() {
-        Text(text = "Big widget")
+        ItemListBig(list = MockUser.getUser().lessen)
     }
 
     @Composable
     fun Medium_Widget() {
-        Text(text = "Medium widget")
+        ItemListMedium(list = MockUser.getUser().lessen)
     }
 
     @Composable
     fun Small_Widget() {
-        Text(text = "Small widget")
+        ItemListSmall(list = MockUser.getUser().lessen)
     }
 
     @Composable
-    fun ItemList(list: List<Les>) {
-        LazyColumn()
+    fun ItemCard(les: Les)
+    {
+        Column(modifier = GlanceModifier.padding(bottom = 10.dp)) {
+            Column(modifier = GlanceModifier.background(Color.Red, Color.Red).height(90.dp).fillMaxWidth().cornerRadius(10.dp)) {
+                Text(text = les.naam)
+                Text(text = les.lokaal)
+                Text(text = les.datum.toString())
+            }
+        }
+
+
+    }
+
+    @Composable
+    fun ItemListSmall(list: List<Les>)
+    {
+        LazyColumn(
+            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).height(100.dp).padding(
+                start = 10.dp,
+                end = 10.dp,
+                bottom = 5.dp,
+                top = 5.dp
+            )
+        )
         {
-            items(list)
-            { les ->
-                ItemCard(les)
+            items(list) { item ->
+                ItemCard(les = item)
             }
         }
     }
 
     @Composable
-    fun ItemCard(les: Les) {
-        Card()
+    fun ItemListMedium(list: List<Les>)
+    {
+        LazyColumn(
+            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).height(210.dp).padding(
+                start = 10.dp,
+                end = 10.dp,
+                bottom = 5.dp,
+                top = 5.dp
+            )
+        )
         {
-            les.naam
-            les.datum
-            les.lokaal
+            items(list) { item ->
+                ItemCard(les = item)
+            }
+        }
+    }
+
+    @Composable
+    fun ItemListBig(list: List<Les>)
+    {
+        LazyColumn(
+            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).height(320.dp).padding(
+                start = 10.dp,
+                end = 10.dp,
+                bottom = 5.dp,
+                top = 10.dp
+            )
+        )
+        {
+            items(list) { item ->
+                ItemCard(les = item)
+            }
         }
     }
 }
