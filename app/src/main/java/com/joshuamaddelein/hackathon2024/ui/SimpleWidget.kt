@@ -30,6 +30,7 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.size
 import androidx.glance.layout.width
 import androidx.glance.text.Text
+import com.joshuamaddelein.hackathon2024.MainActivity
 import com.joshuamaddelein.hackathon2024.ParkingQrScreen
 import com.joshuamaddelein.hackathon2024.R
 import com.joshuamaddelein.hackathon2024.data.model.Les
@@ -67,7 +68,7 @@ class SimpleWidget : GlanceAppWidget() {
             verticalAlignment = Alignment.Top
         ) {
             if (size.height >= LARGE_RECTANGLE.height) {
-                Large_Widget()
+                Medium_Widget()
             } else if (size.height > SMALL_RECTANGLE.height && size.height <= MEDIUM_RECTANGLE.height) {
                 Medium_Widget()
             } else {
@@ -78,15 +79,15 @@ class SimpleWidget : GlanceAppWidget() {
 
     @Composable
     fun Large_Widget() {
-        ItemListNormal(list = MockUser.getUser().lessen)
+        ItemListBig(list = MockUser.getUser().lessen)
     }
 
     @Composable
     fun Medium_Widget() {
         Box(modifier = GlanceModifier.fillMaxSize(), Alignment(Alignment.End, Alignment.Bottom)) {
-            ItemListNormal(list = MockUser.getUser().lessen)
+            ItemListMedium(list = MockUser.getUser().lessen)
             Box (contentAlignment = Alignment(Alignment.Start, Alignment.Top), modifier = GlanceModifier.padding(0.dp, 0.dp, 10.dp, 10.dp)) {
-                Box(modifier = GlanceModifier.clickable(actionStartActivity<ParkingQrScreen>()).size(50.dp).padding(5.dp).background(Color.Red, Color.Red).cornerRadius(20.dp), Alignment(Alignment.CenterHorizontally, Alignment.CenterVertically)) {
+                Box(modifier = GlanceModifier.clickable(actionStartActivity<MainActivity>()).size(50.dp).padding(5.dp).background(Color.Red, Color.Red).cornerRadius(20.dp), Alignment(Alignment.CenterHorizontally, Alignment.CenterVertically)) {
                     Image(provider = ImageProvider(R.drawable.qr), contentDescription = null, modifier = GlanceModifier.width(20.dp))
                 }
             }
@@ -154,7 +155,7 @@ class SimpleWidget : GlanceAppWidget() {
     }
 
     @Composable
-    fun ItemListNormal(list: List<Les>)
+    fun ItemListMedium(list: List<Les>)
     {
         LazyColumn(
             modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).padding(
@@ -165,6 +166,24 @@ class SimpleWidget : GlanceAppWidget() {
         {
             items(list) { item ->
                 ItemCardNormal(les = item, size = null)
+            }
+        }
+    }
+
+    @Composable
+    fun ItemListBig(list: List<Les>)
+    {
+        LazyColumn(
+            modifier = GlanceModifier.padding(top = 5.dp, bottom = 5.dp).padding(
+                start = 10.dp,
+                end = 10.dp,
+                bottom = 5.dp,
+                top = 10.dp
+            )
+        )
+        {
+            items(list) { item ->
+                ItemCardSmall(les = item, size = null)
             }
         }
     }
