@@ -75,6 +75,9 @@ dependencies {
 
     implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
 
+    //blur
+    implementation ("com.github.skydoves:cloudy:0.1.2")
+
 
     // appWidgets support
     implementation("androidx.glance:glance-appwidget:1.0.0-rc01")

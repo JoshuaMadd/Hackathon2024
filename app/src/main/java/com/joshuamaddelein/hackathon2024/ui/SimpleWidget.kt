@@ -53,6 +53,7 @@ import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
 import com.joshuamaddelein.hackathon2024.MainActivity
+import com.joshuamaddelein.hackathon2024.ParkingQrScreen
 import com.joshuamaddelein.hackathon2024.R
 import com.joshuamaddelein.hackathon2024.data.model.Les
 import com.joshuamaddelein.hackathon2024.util.MockUser
@@ -124,7 +125,7 @@ class SimpleWidget() : GlanceAppWidget() {
             Box (contentAlignment = Alignment(Alignment.Start, Alignment.Top), modifier = GlanceModifier.padding(0.dp, 0.dp, 10.dp, 10.dp)) {
 
                     Box(modifier = GlanceModifier
-                        .clickable(actionStartActivity<MainActivity>())
+                        .clickable(actionStartActivity<ParkingQrScreen>())
                         .size(50.dp).padding(5.dp).background(Color.Red, Color.Red).cornerRadius(20.dp), Alignment(Alignment.CenterHorizontally, Alignment.CenterVertically)) {
                         Image(provider = ImageProvider(R.drawable.qr_white), contentDescription = null, modifier = GlanceModifier.width(20.dp))
                     }
