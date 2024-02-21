@@ -63,6 +63,7 @@ dependencies {
     implementation("androidx.glance:glance-appwidget:1.0.0")
     implementation("androidx.glance:glance-appwidget:1.0.0")
 
+    implementation("androidx.lifecycle:lifecycle-service:2.7.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -71,6 +72,9 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+
 
     // appWidgets support
     implementation("androidx.glance:glance-appwidget:1.0.0-rc01")
