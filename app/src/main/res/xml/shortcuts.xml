@@ -1,0 +1,37 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="ParkingQR"
+        android:enabled="true"
+        android:icon="@drawable/qr"
+        android:shortcutShortLabel="@string/parkingQr"
+        android:shortcutLongLabel="@string/parkingQr"
+        android:shortcutDisabledMessage="@string/parkingQr">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.joshuamaddelein.hackathon2024"
+            android:targetClass="com.joshuamaddelein.hackathon2024.ParkingQrScreen" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+        <capability-binding android:key="actions.intent.CREATE_MESSAGE" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="UserQR"
+        android:enabled="true"
+        android:icon="@drawable/qr"
+        android:shortcutShortLabel="@string/RegistratieQr"
+        android:shortcutLongLabel="@string/RegistratieQr"
+        android:shortcutDisabledMessage="@string/RegistratieQr">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.joshuamaddelein.hackathon2024"
+            android:targetClass="com.joshuamaddelein.hackathon2024.MainActivity" />
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+        <capability-binding android:key="actions.intent.CREATE_MESSAGE" />
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>
